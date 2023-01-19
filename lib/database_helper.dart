@@ -74,4 +74,11 @@ CREATE TABLE $table (
       whereArgs: [id],
     );
   }
+
+  //for the row count
+
+  Future<int> queryRowCount() async {
+    final results = await _db.rawQuery('SELECT COUNT(*) FROM $table');
+    return Sqflite.firstIntValue(results) ?? 0;
+  }
 }
