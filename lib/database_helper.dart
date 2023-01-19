@@ -35,4 +35,19 @@ CREATE TABLE $table (
       onCreate: _onCreate,
     );
   }
+
+  //creating a helper method
+  //here i will insert row in the database where each key in the Map is a column name
+  //while the value is the colum value. The return value is the id of the inserted row
+
+  Future<int> insert(Map<String, dynamic> row) async {
+    return await _db.insert(table, row);
+  }
+
+  //here all the rows are retuned as a list of maps.
+  //each map is a key-value list of columns.
+
+  Future<List<Map<String, dynamic>>> queryAllRows() async {
+    return await _db.query(table);
+  }
 }
