@@ -62,4 +62,16 @@ CREATE TABLE $table (
       whereArgs: [id],
     );
   }
+
+  //This will now delete a specified id row
+  //while the number of affected rows would be returned, this should be 1.
+  //given the row exists
+
+  Future<int> delete(int id) async {
+    return await _db.delete(
+      table,
+      where: '$columnId = ?',
+      whereArgs: [id],
+    );
+  }
 }
