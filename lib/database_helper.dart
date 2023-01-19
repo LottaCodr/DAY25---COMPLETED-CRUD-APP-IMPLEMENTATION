@@ -82,3 +82,4 @@ CREATE TABLE $table (
     return Sqflite.firstIntValue(results) ?? 0;
   }
 }
+//COMPLETED AND IMPLEMENTED CRUD
