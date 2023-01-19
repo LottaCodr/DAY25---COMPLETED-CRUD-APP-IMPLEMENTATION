@@ -50,4 +50,16 @@ CREATE TABLE $table (
   Future<List<Map<String, dynamic>>> queryAllRows() async {
     return await _db.query(table);
   }
+
+//Lets assum here that the id colum in the map is set.
+//Then the colujmn values will be used to update the row
+  Future<int> update(Map<String, dynamic> row) async {
+    int id = row[columnId];
+    return await _db.update(
+      table,
+      row,
+      where: '$columnId = ?',
+      whereArgs: [id],
+    );
+  }
 }
